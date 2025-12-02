@@ -8,6 +8,8 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^13.2.1",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
     "json-server": "^1.0.0-beta.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -19,6 +21,7 @@
     "start": "react-scripts start",
     "server": "json-server --watch db.json --port 5000",
     "dev": "concurrently \"yarn server\" \"yarn start\"",
+    "hash-password": "node scripts/hashPassword.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

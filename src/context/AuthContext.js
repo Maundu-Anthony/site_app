@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { comparePassword } from '../utils/passwordUtils';
 
 const AuthContext = createContext(null);
 const API_URL = 'http://localhost:5000';
@@ -38,7 +39,10 @@ export const AuthProvider = ({ children }) => {
           throw new Error('This admin account has been deactivated. Access denied.');
         }
         
-        if (admin.email === email && admin.password === password) {
+        // Verify email and password (with bcrypt)
+        const isPasswordValid = await comparePassword(password, admin.password);
+        
+        if (admin.email === email && isPasswordValid) {
           authenticatedUser = {
             id: admin.id,
             email: admin.email,
@@ -52,19 +56,25 @@ export const AuthProvider = ({ children }) => {
         const response = await fetch(`${API_URL}/supervisors`);
         const supervisors = await response.json();
         
+        // Find supervisor by email first
         const supervisor = supervisors.find(
-          sup => sup.email === email && sup.password === password && sup.isActive
+          sup => sup.email === email && sup.isActive
         );
         
         if (supervisor) {
-          authenticatedUser = {
-            id: supervisor.id,
-            email: supervisor.email,
-            name: supervisor.name,
-            role: supervisor.role,
-            phone: supervisor.phone,
-            assignedProjects: supervisor.assignedProjects,
-          };
+          // Verify password with bcrypt
+          const isPasswordValid = await comparePassword(password, supervisor.password);
+          
+          if (isPasswordValid) {
+            authenticatedUser = {
+              id: supervisor.id,
+              email: supervisor.email,
+              name: supervisor.name,
+              role: supervisor.role,
+              phone: supervisor.phone,
+              assignedProjects: supervisor.assignedProjects,
+            };
+          }
         }
       }
 

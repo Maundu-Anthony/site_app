@@ -7,6 +7,7 @@ import {
   ExclamationCircleIcon,
   CheckCircleIcon
 } from '@heroicons/react/24/outline';
+import { hashPassword } from '../utils/passwordUtils';
 
 const API_URL = 'http://localhost:5000';
 
@@ -90,11 +91,14 @@ const AdminSetup = () => {
         });
       }
 
+      // Hash the new password
+      const hashedPassword = await hashPassword(password);
+
       // Create new admin account
       const newAdminData = {
         id: 'admin-001',
         email: handoverData.email,
-        password: password,
+        password: hashedPassword,
         name: handoverData.name,
         role: 'admin',
         phone: handoverData.phone,

@@ -8,6 +8,7 @@ import {
   PhoneIcon,
   ExclamationCircleIcon
 } from '@heroicons/react/24/outline';
+import { hashPassword } from '../utils/passwordUtils';
 
 const API_URL = 'http://localhost:5000';
 
@@ -59,16 +60,20 @@ const AdminSignup = () => {
         return;
       }
 
+      // Hash the password before storing
+      const hashedPassword = await hashPassword(formData.password);
+
       // Create admin account
       const adminData = {
         id: 'admin-001',
         email: formData.email,
-        password: formData.password,
+        password: hashedPassword,
         name: formData.name,
         role: 'admin',
         phone: formData.phone,
         createdAt: new Date().toISOString(),
-        lastLogin: null
+        lastLogin: null,
+        isActive: true
       };
 
       const response = await fetch(`${API_URL}/admin`, {

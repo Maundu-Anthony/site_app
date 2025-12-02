@@ -7,6 +7,7 @@ import {
   PhoneIcon,
   ExclamationCircleIcon
 } from '@heroicons/react/24/outline';
+import { hashPassword } from '../utils/passwordUtils';
 
 const API_URL = 'http://localhost:5000';
 
@@ -82,11 +83,14 @@ const SupervisorSignup = () => {
       // Generate supervisor ID
       const supervisorId = await generateSupervisorId();
 
+      // Hash the password before storing
+      const hashedPassword = await hashPassword(formData.password);
+
       // Create supervisor account
       const supervisorData = {
         id: supervisorId,
         email: formData.email,
-        password: formData.password,
+        password: hashedPassword,
         name: formData.name,
         role: 'supervisor',
         phone: formData.phone,
