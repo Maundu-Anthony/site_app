@@ -2,7 +2,7 @@
   "admin": {
     "id": "admin-001",
     "email": "anthonymaundu1@gmail.com",
-    "password": "$2b$10$XrCUY3VNZ9cLLKexh2bvvOwPVGoT6GrRgGEKfc9ZJZhnmwSU59Z2C",
+    "password": "$2b$10$18pcucg67V8RjEicTQbW/OZ5O2vhMmFDEbfbzEci8wf0XbvxKNkOe",
     "name": "Admin User",
     "role": "admin",
     "phone": "+254706972321",

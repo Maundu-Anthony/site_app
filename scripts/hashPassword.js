@@ -10,7 +10,7 @@ const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
 
 // Hash the admin password
 const hashAdminPassword = async () => {
-  const plainPassword = 'admin123'; // Current password
+  const plainPassword = 'makueni2013'; // Current password
   const hashedPassword = await bcrypt.hash(plainPassword, SALT_ROUNDS);
   
   // Update admin password
@@ -21,7 +21,7 @@ const hashAdminPassword = async () => {
   
   console.log('✅ Admin password has been hashed successfully!');
   console.log('📧 Email: anthonymaundu1@gmail.com');
-  console.log('🔑 Password: admin123');
+  console.log('🔑 Password: makueni2013');
   console.log('🔒 Hashed Password:', hashedPassword);
 };
 
