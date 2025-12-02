@@ -1,0 +1,24 @@
+{
+  "admin": {
+    "item": {
+      "id": "admin-001",
+      "email": "anthonymaundu1@gmail.com",
+      "password": "makueni2013",
+      "name": "admin",
+      "role": "admin",
+      "phone": "+254706972321",
+      "createdAt": "2025-12-02T21:04:16.766Z",
+      "lastLogin": "2025-12-02T21:05:21.967Z",
+      "isActive": true
+    },
+    "lastLogin": "2025-12-02T21:24:12.982Z"
+  },
+  "supervisors": [],
+  "workers": [],
+  "checkIns": [],
+  "accessDenied": [],
+  "roles": [],
+  "projects": [],
+  "tasks": [],
+  "adminHandover": []
+}
