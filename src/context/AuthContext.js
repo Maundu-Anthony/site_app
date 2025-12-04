@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { comparePassword } from '../utils/passwordUtils';
 
 const AuthContext = createContext(null);
 const API_URL = 'http://localhost:5000';
@@ -39,10 +38,8 @@ export const AuthProvider = ({ children }) => {
           throw new Error('This admin account has been deactivated. Access denied.');
         }
         
-        // Verify email and password (with bcrypt)
-        const isPasswordValid = await comparePassword(password, admin.password);
-        
-        if (admin.email === email && isPasswordValid) {
+        // Verify email and password
+        if (admin.email === email && admin.password === password) {
           authenticatedUser = {
             id: admin.id,
             email: admin.email,
@@ -62,10 +59,8 @@ export const AuthProvider = ({ children }) => {
         );
         
         if (supervisor) {
-          // Verify password with bcrypt
-          const isPasswordValid = await comparePassword(password, supervisor.password);
-          
-          if (isPasswordValid) {
+          // Verify password
+          if (supervisor.password === password) {
             authenticatedUser = {
               id: supervisor.id,
               email: supervisor.email,

@@ -1,16 +1,32 @@
 {
   "admin": {
-    "id": "admin-001",
-    "email": "anthonymaundu1@gmail.com",
-    "password": "$2b$10$18pcucg67V8RjEicTQbW/OZ5O2vhMmFDEbfbzEci8wf0XbvxKNkOe",
-    "name": "Admin User",
-    "role": "admin",
-    "phone": "+254706972321",
-    "createdAt": "2025-12-02T21:04:16.766Z",
-    "lastLogin": "2025-12-02T21:24:12.982Z",
-    "isActive": true
+    "item": {
+      "id": "admin-001",
+      "email": "anthonymaundu1@gmail.com",
+      "password": "makueni2013",
+      "name": "Admin User",
+      "role": "admin",
+      "phone": "+254706972321",
+      "createdAt": "2025-12-02T21:04:16.766Z",
+      "lastLogin": "2025-12-02T21:24:12.982Z",
+      "isActive": true
+    },
+    "lastLogin": "2025-12-04T05:10:44.769Z"
   },
-  "supervisors": [],
+  "supervisors": [
+    {
+      "id": "sup-001",
+      "email": "moseskioko@gmail.com",
+      "password": "kichwakubwa100%",
+      "name": "Moses KIoko",
+      "role": "supervisor",
+      "phone": "+254746817884",
+      "assignedProjects": [],
+      "createdAt": "2025-12-03T04:56:34.710Z",
+      "lastLogin": "2025-12-04T05:11:37.352Z",
+      "isActive": true
+    }
+  ],
   "workers": [],
   "checkIns": [],
   "accessDenied": [],
